@@ -16,6 +16,6 @@ def signup(request):
 def predict(request):
     pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")
     knn_from_joblib = joblib.load(pklout)
-    ini_array = np.array([[2, 19, 1]])
+    ini_array = np.array([[2, 29, 1]])
     str2 = knn_from_joblib.predict(ini_array) 
     return render(request,'predict.html',{'f':str2})

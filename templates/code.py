@@ -4,6 +4,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+from sklearn.externals import joblib
 
 # Importing the dataset
 
@@ -96,7 +97,23 @@ plt.xlabel('Position level')
 plt.ylabel('Salary')
 plt.show()
 
+joblib.dump(regressor, 'randomfrest.pkl') 
+  
+# Load the model from the file 
+#knn_from_joblib = joblib.load('randomfrest.pkl')  
 
+pkl =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\randomforest.pkl","wb")
+joblib.dump(regressor,pkl)
+pkl.close()
+pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")
+knn_from_joblib = joblib.load(pklout)
+  
+# Use the loaded model to make predictions 
+knn_from_joblib.predict(X_test) 
+
+ini_array = np.array([[1, 18, 1]])
+str2 = knn_from_joblib.predict(ini_array) 
+print(str2)
 
 
 

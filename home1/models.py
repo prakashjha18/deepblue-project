@@ -1,9 +1,7 @@
-<<<<<<< Updated upstream
+
 from django.db import models
 
-# Create your models here.
-=======
-from django.db import models
+class Registration(models.Model):
+    username= models.CharField(max_length=100)
+    password= models.
 
-# Create your models here.
->>>>>>> Stashed changes

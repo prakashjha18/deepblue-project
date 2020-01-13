@@ -144,7 +144,7 @@
 -------------------------------------------------------------- */
 .wprt-content-box.has-shadow > .inner { padding: 40px 30px 40px 30px; background-color: #fff; -webkit-box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.07); -moz-box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.07); box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.07); }
 .wprt-content-box .request-form-2,
-.wprt-content-box.request-form-1 { padding: 40px 40px 40px 40px; }
+.wprt-content-box.request-form-1 { padding: 70px 40px 40px 40px;margin-left: -30px;margin-right: -30px; }
 .wprt-content-box.style-1 p { margin-bottom: 0; }
 
 .wprt-content-box.move-into-slider-home-2 { margin-top: -110px; -webkit-box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.07); -moz-box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.07); box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.07); }
@@ -372,22 +372,24 @@
 
 .wpcf7-form .wprt-contact-form-1 select, 
 .wpcf7-form .wprt-contact-form-1 textarea, 
-.wpcf7-form .wprt-contact-form-1 input { border-radius: 3px; }
+.wpcf7-form .wprt-contact-form-1 input { border-radius: 3px;width: 40%; }
 
 .wprt-contact-form-1 .wpcf7-form-control-wrap.name,
 .wprt-contact-form-1 .wpcf7-form-control-wrap.email,
 .wprt-contact-form-1 .wpcf7-form-control-wrap.phone,
 .wprt-contact-form-1 .wpcf7-form-control-wrap.date,
 .wprt-contact-form-1 .wpcf7-form-control-wrap.departments,
-.wprt-contact-form-1 .wpcf7-form-control-wrap.doctors { width: 48.051%; float: left; }
+.wprt-contact-form-1 .wpcf7-form-control-wrap.doctors { width: 48.051%; margin-left: 450px; }
 
-.wprt-contact-form-1 .wpcf7-form-control-wrap.phone,
-.wprt-contact-form-1 .wpcf7-form-control-wrap.date,
+
+
 .wprt-contact-form-1 .wpcf7-form-control-wrap.doctors  { float: right; }
+.wprt-contact-form-1 .wpcf7-form-control-wrap.phone{margin-top: 200px;}
+
 
 .wprt-contact-form-1 .wpcf7-form-control-wrap.message textarea { height: 150px;  margin-bottom: 30px; }
 .wprt-contact-form-1 .wrap-submit { text-align: left; }
-.wprt-contact-form-1 .wrap-submit .submit { padding: 18px 36px; }
+.wprt-contact-form-1 .wrap-submit .submit { padding: 18px 36px;margin-top: 60px;margin-left:600px;width: 15% ;text-align: center; }
 .wprt-contact-form-1 .wpcf7-form-control-wrap { position: relative; }
 .wprt-contact-form-1 .wpcf7-form-control-wrap label.error { position: absolute; right: 15px; top: 12px; color: #e82727; font-size: 14px; }
 

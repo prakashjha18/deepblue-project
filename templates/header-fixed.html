@@ -1,3 +1,5 @@
+{%load static %}
+{% static "img" as baseUrl %}
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
@@ -19,8 +21,8 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <!-- Favicon and touch icons  -->
-    <link rel="shortcut icon" href="assets/icon/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/icon/apple-touch-icon-158-precomposed.png">
+    <link rel="shortcut icon" href="static/icon/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="static/icon/apple-touch-icon-158-precomposed.png">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -67,7 +69,7 @@
                 <div id="site-logo" class="clearfix">
                     <div id="site-logo-inner">
                         <a href="home.html" title="Medical" rel="home" class="main-logo">
-                            <img src="assets/img/logo.png" alt="Medical" data-retina="assets/img/logo@2x.png" width="167" height="44" data-width="167" data-height="44">
+                            <img src="static/img/logo.png" alt="Medical" data-retina="static/img/logo.png" width="167" height="44" data-width="167" data-height="44">
                         </a>
                     </div>
                 </div><!-- /#site-logo -->
@@ -132,7 +134,7 @@
             <!-- Slide 1 -->
             <li data-transition="random">
                 <!-- Main Image -->
-                <img src="assets/img/slider/slider-1.jpg" alt="image" data-bgposition="center center" data-no-retina>
+                <img src="static/img/slider/slider-1.jpg" alt="image" data-bgposition="center center" data-no-retina>
                 <!-- Layers -->
                 <div class="tp-caption tp-resizeme text-white text-left font-heading font-weight-600"
                     data-x="['left','left','left','center']" data-hoffset="['30','30','30','0']"
@@ -195,7 +197,7 @@
             <!-- Slide 2 -->
             <li data-transition="random">
                 <!-- Main Image -->
-                <img src="assets/img/slider/slider-2.jpg" alt="image" data-bgposition="center center" data-no-retina>
+                <img src="static/img/slider/slider-2.jpg" alt="image" data-bgposition="center center" data-no-retina>
                 <!-- Layers -->
                 <div class="tp-caption tp-resizeme text-white text-left font-heading font-weight-600"
                     data-x="['left','left','left','center']" data-hoffset="['30','30','30','0']"
@@ -356,7 +358,7 @@
                                         <div class="inner">                                        
                                             <div class="wprt-icon-box has-width w100 icon-top align-center rounded-100 grey-outline clearfix">
                                                 <div class="image-wrap">
-                                                    <img alt="image" src="assets/img/icon-1.png">
+                                                    <img alt="image" src="static/img/icon-1.png">
                                                 </div>
                                                 <h3 class="heading"><a target="_blank" href="#"><span>Medical Excellence</span></a></h3>
                                                 <p class="desc">
@@ -374,7 +376,7 @@
                                         <div class="inner">                                        
                                             <div class="wprt-icon-box has-width w100 icon-top align-center rounded-100 grey-outline clearfix">
                                                 <div class="image-wrap">
-                                                    <img alt="image" src="assets/img/icon-2.png">
+                                                    <img alt="image" src="static/img/icon-2.png">
                                                 </div>
                                                 <h3 class="heading"><a target="_blank" href="#"><span>Healthcare Professionals</span></a></h3>
                                                 <p class="desc">
@@ -392,7 +394,7 @@
                                         <div class="inner">                                        
                                             <div class="wprt-icon-box has-width w100 icon-top align-center rounded-100 grey-outline clearfix">
                                                 <div class="image-wrap">
-                                                    <img alt="image" src="assets/img/icon-3.png">
+                                                    <img alt="image" src="static/img/icon-3.png">
                                                 </div>
                                                 <h3 class="heading"><a target="_blank" href="#"><span>Latest Technologies</span></a></h3>
                                                 <p class="desc">
@@ -430,7 +432,7 @@
                                                 <div class="item">
                                                     <div class="inner">
                                                         <div class="thumb">
-                                                            <img src="assets/img/doctors/1-360x300.jpg" alt="image">
+                                                            <img src="static/img/doctors/1-360x300.jpg" alt="image">
                                                         </div>
 
                                                         <div class="text-wrap">
@@ -450,7 +452,7 @@
                                                 <div class="item">
                                                     <div class="inner">
                                                         <div class="thumb">
-                                                            <img src="assets/img/doctors/4-360x300.jpg" alt="image">
+                                                            <img src="static/img/doctors/4-360x300.jpg" alt="image">
                                                         </div>
 
                                                         <div class="text-wrap">
@@ -470,7 +472,7 @@
                                                 <div class="item">
                                                     <div class="inner">
                                                         <div class="thumb">
-                                                            <img src="assets/img/doctors/5-360x300.jpg" alt="image">
+                                                            <img src="static/img/doctors/5-360x300.jpg" alt="image">
                                                         </div>
 
                                                         <div class="text-wrap">
@@ -490,7 +492,7 @@
                                                 <div class="item">
                                                     <div class="inner">
                                                         <div class="thumb">
-                                                            <img src="assets/img/doctors/6-360x300.jpg" alt="image">
+                                                            <img src="static/img/doctors/6-360x300.jpg" alt="image">
                                                         </div>
 
                                                         <div class="text-wrap">
@@ -510,7 +512,7 @@
                                                 <div class="item">
                                                     <div class="inner">
                                                         <div class="thumb">
-                                                            <img src="assets/img/doctors/1-360x300.jpg" alt="image">
+                                                            <img src="static/img/doctors/1-360x300.jpg" alt="image">
                                                         </div>
 
                                                         <div class="text-wrap">
@@ -530,7 +532,7 @@
                                                 <div class="item">
                                                     <div class="inner">
                                                         <div class="thumb">
-                                                            <img src="assets/img/doctors/4-360x300.jpg" alt="image">
+                                                            <img src="static/img/doctors/4-360x300.jpg" alt="image">
                                                         </div>
 
                                                         <div class="text-wrap">
@@ -550,7 +552,7 @@
                                                 <div class="item">
                                                     <div class="inner">
                                                         <div class="thumb">
-                                                            <img src="assets/img/doctors/5-360x300.jpg" alt="image">
+                                                            <img src="static/img/doctors/5-360x300.jpg" alt="image">
                                                         </div>
 
                                                         <div class="text-wrap">
@@ -570,7 +572,7 @@
                                                 <div class="item">
                                                     <div class="inner">
                                                         <div class="thumb">
-                                                            <img src="assets/img/doctors/6-360x300.jpg" alt="image">
+                                                            <img src="static/img/doctors/6-360x300.jpg" alt="image">
                                                         </div>
 
                                                         <div class="text-wrap">
@@ -590,7 +592,7 @@
                                                 <div class="item">
                                                     <div class="inner">
                                                         <div class="thumb">
-                                                            <img src="assets/img/doctors/1-360x300.jpg" alt="image">
+                                                            <img src="static/img/doctors/1-360x300.jpg" alt="image">
                                                         </div>
 
                                                         <div class="text-wrap">
@@ -610,7 +612,7 @@
                                                 <div class="item">
                                                     <div class="inner">
                                                         <div class="thumb">
-                                                            <img src="assets/img/doctors/4-360x300.jpg" alt="image">
+                                                            <img src="static/img/doctors/4-360x300.jpg" alt="image">
                                                         </div>
 
                                                         <div class="text-wrap">
@@ -630,7 +632,7 @@
                                                 <div class="item">
                                                     <div class="inner">
                                                         <div class="thumb">
-                                                            <img src="assets/img/doctors/5-360x300.jpg" alt="image">
+                                                            <img src="static/img/doctors/5-360x300.jpg" alt="image">
                                                         </div>
 
                                                         <div class="text-wrap">
@@ -650,7 +652,7 @@
                                                 <div class="item">
                                                     <div class="inner">
                                                         <div class="thumb">
-                                                            <img src="assets/img/doctors/6-360x300.jpg" alt="image">
+                                                            <img src="static/img/doctors/6-360x300.jpg" alt="image">
                                                         </div>
 
                                                         <div class="text-wrap">
@@ -813,7 +815,7 @@
                                                         <div class="item">
                                                             <div class="inner">
                                                                 <div class="thumb">
-                                                                    <img src="assets/img/services/1-270x200.jpg" alt="image">
+                                                                    <img src="static/img/services/1-270x200.jpg" alt="image">
                                                                 </div>
 
                                                                 <div class="text-wrap">
@@ -830,7 +832,7 @@
                                                         <div class="item">
                                                             <div class="inner">
                                                                 <div class="thumb">
-                                                                    <img src="assets/img/services/2-270x200.jpg" alt="image">
+                                                                    <img src="static/img/services/2-270x200.jpg" alt="image">
                                                                 </div>
 
                                                                 <div class="text-wrap">
@@ -847,7 +849,7 @@
                                                         <div class="item">
                                                             <div class="inner">
                                                                 <div class="thumb">
-                                                                    <img src="assets/img/services/3-270x200.jpg" alt="image">
+                                                                    <img src="static/img/services/3-270x200.jpg" alt="image">
                                                                 </div>
 
                                                                 <div class="text-wrap">
@@ -864,7 +866,7 @@
                                                         <div class="item">
                                                             <div class="inner">
                                                                 <div class="thumb">
-                                                                    <img src="assets/img/services/4-270x200.jpg" alt="image">
+                                                                    <img src="static/img/services/4-270x200.jpg" alt="image">
                                                                 </div>
 
                                                                 <div class="text-wrap">
@@ -881,7 +883,7 @@
                                                         <div class="item">
                                                             <div class="inner">
                                                                 <div class="thumb">
-                                                                    <img src="assets/img/services/5-270x200.jpg" height="200" width="270" alt="image">
+                                                                    <img src="static/img/services/5-270x200.jpg" height="200" width="270" alt="image">
                                                                 </div>
 
                                                                 <div class="text-wrap">
@@ -898,7 +900,7 @@
                                                         <div class="item">
                                                             <div class="inner">
                                                                 <div class="thumb">
-                                                                    <img src="assets/img/services/6-270x200.jpg" alt="image">
+                                                                    <img src="static/img/services/6-270x200.jpg" alt="image">
                                                                 </div>
 
                                                                 <div class="text-wrap">
@@ -947,7 +949,7 @@
                                                             <div class="arrow"></div>                                                            
                                                         </blockquote> 
                                                         <div class="thumb">
-                                                            <img src="assets/img/clients/client-1.png" alt="Image">
+                                                            <img src="static/img/clients/client-1.png" alt="Image">
                                                         </div> 
 
                                                         <h6 class="name">Justin Forder</h6>
@@ -964,7 +966,7 @@
                                                             <div class="arrow"></div>                                                            
                                                         </blockquote> 
                                                         <div class="thumb">
-                                                            <img src="assets/img/clients/client-1.png" alt="Image">
+                                                            <img src="static/img/clients/client-1.png" alt="Image">
                                                         </div> 
 
                                                         <h6 class="name">Justin Forder</h6>
@@ -981,7 +983,7 @@
                                                             <div class="arrow"></div>                                                            
                                                         </blockquote> 
                                                         <div class="thumb">
-                                                            <img src="assets/img/clients/client-1.png" alt="Image">
+                                                            <img src="static/img/clients/client-1.png" alt="Image">
                                                         </div> 
 
                                                         <h6 class="name">Justin Forder</h6>
@@ -998,7 +1000,7 @@
                                                             <div class="arrow"></div>                                                            
                                                         </blockquote> 
                                                         <div class="thumb">
-                                                            <img src="assets/img/clients/client-1.png" alt="Image">
+                                                            <img src="static/img/clients/client-1.png" alt="Image">
                                                         </div> 
 
                                                         <h6 class="name">Justin Forder</h6>
@@ -1015,7 +1017,7 @@
                                                             <div class="arrow"></div>                                                            
                                                         </blockquote> 
                                                         <div class="thumb">
-                                                            <img src="assets/img/clients/client-1.png" alt="Image">
+                                                            <img src="static/img/clients/client-1.png" alt="Image">
                                                         </div> 
 
                                                         <h6 class="name">Justin Forder</h6>
@@ -1032,7 +1034,7 @@
                                                             <div class="arrow"></div>                                                            
                                                         </blockquote> 
                                                         <div class="thumb">
-                                                            <img src="assets/img/clients/client-1.png" alt="Image">
+                                                            <img src="static/img/clients/client-1.png" alt="Image">
                                                         </div> 
 
                                                         <h6 class="name">Justin Forder</h6>
@@ -1068,7 +1070,7 @@
                                             <div class="wprt-news has-shadow style-1">
                                                 <div class="news-item">
                                                     <div class="inner">
-                                                        <img src="assets/img/news/1-370x250.jpg" alt="image">
+                                                        <img src="static/img/news/1-370x250.jpg" alt="image">
                                                         
                                                         <div class="text-wrap">
                                                             <h3 class="title"><a href="#">Healthy New Year’s resolutions and how to keep them</a></h3>
@@ -1092,7 +1094,7 @@
                                             <div class="wprt-news has-shadow style-1">
                                                 <div class="news-item">
                                                     <div class="inner">
-                                                        <img src="assets/img/news/2-370x250.jpg" alt="image">
+                                                        <img src="static/img/news/2-370x250.jpg" alt="image">
                                                         
                                                         <div class="text-wrap">
                                                             <h3 class="title"><a href="#">How mindfulness can ease your stress</a></h3>
@@ -1116,7 +1118,7 @@
                                             <div class="wprt-news has-shadow style-1">
                                                 <div class="news-item">
                                                     <div class="inner">
-                                                        <img src="assets/img/news/3-370x250.jpg" alt="image">
+                                                        <img src="static/img/news/3-370x250.jpg" alt="image">
                                                         
                                                         <div class="text-wrap">
                                                             <h3 class="title"><a href="#">Physiotherapy Q&A: Is Pilates really helpful for back pain?</a></h3>
@@ -1140,7 +1142,7 @@
                                             <div class="wprt-news has-shadow style-1">
                                                 <div class="news-item">
                                                     <div class="inner">
-                                                        <img src="assets/img/news/1-370x250.jpg" alt="image">
+                                                        <img src="static/img/news/1-370x250.jpg" alt="image">
                                                         
                                                         <div class="text-wrap">
                                                             <h3 class="title"><a href="#">Healthy New Year’s resolutions and how to keep them</a></h3>
@@ -1164,7 +1166,7 @@
                                             <div class="wprt-news has-shadow style-1">
                                                 <div class="news-item">
                                                     <div class="inner">
-                                                        <img src="assets/img/news/2-370x250.jpg" alt="image">
+                                                        <img src="static/img/news/2-370x250.jpg" alt="image">
                                                         
                                                         <div class="text-wrap">
                                                             <h3 class="title"><a href="#">How mindfulness can ease your stress</a></h3>
@@ -1188,7 +1190,7 @@
                                             <div class="wprt-news has-shadow style-1">
                                                 <div class="news-item">
                                                     <div class="inner">
-                                                        <img src="assets/img/news/3-370x250.jpg" alt="image">
+                                                        <img src="static/img/news/3-370x250.jpg" alt="image">
                                                         
                                                         <div class="text-wrap">
                                                             <h3 class="title"><a href="#">Physiotherapy Q&A: Is Pilates really helpful for back pain?</a></h3>
@@ -1212,7 +1214,7 @@
                                             <div class="wprt-news has-shadow style-1">
                                                 <div class="news-item">
                                                     <div class="inner">
-                                                        <img src="assets/img/news/1-370x250.jpg" alt="image">
+                                                        <img src="static/img/news/1-370x250.jpg" alt="image">
                                                         
                                                         <div class="text-wrap">
                                                             <h3 class="title"><a href="#">Healthy New Year’s resolutions and how to keep them</a></h3>
@@ -1236,7 +1238,7 @@
                                             <div class="wprt-news has-shadow style-1">
                                                 <div class="news-item">
                                                     <div class="inner">
-                                                        <img src="assets/img/news/2-370x250.jpg" alt="image">
+                                                        <img src="static/img/news/2-370x250.jpg" alt="image">
                                                         
                                                         <div class="text-wrap">
                                                             <h3 class="title"><a href="#">How mindfulness can ease your stress</a></h3>
@@ -1260,7 +1262,7 @@
                                             <div class="wprt-news has-shadow style-1">
                                                 <div class="news-item">
                                                     <div class="inner">
-                                                        <img src="assets/img/news/3-370x250.jpg" alt="image">
+                                                        <img src="static/img/news/3-370x250.jpg" alt="image">
                                                         
                                                         <div class="text-wrap">
                                                             <h3 class="title"><a href="#">Physiotherapy Q&A: Is Pilates really helpful for back pain?</a></h3>
@@ -1426,7 +1428,7 @@
             <div class="span_1_of_3 col">
                 <div class="widget widget_text">
                     <div class="textwidget">
-                        <img src="assets/img/logo-footer.png"  id="footer-logo" alt="logo">
+                        <img src="static/img/logo-footer.png"  id="footer-logo" alt="logo">
                     </div>
                 </div>
 
@@ -1500,7 +1502,7 @@
                     <ul class="recent-news clearfix">
                         <li class="clearfix">
                             <div class="thumb">
-                                <img src="assets/img/news/1-80x80.jpg" alt="image">
+                                <img src="static/img/news/1-80x80.jpg" alt="image">
                             </div>
                                         
                             <div class="texts">
@@ -1513,7 +1515,7 @@
 
                         <li class="clearfix">
                             <div class="thumb">
-                                <img src="assets/img/news/2-80x80.jpg" alt="image">         
+                                <img src="static/img/news/2-80x80.jpg" alt="image">         
                             </div>
                                         
                             <div class="texts">
@@ -1556,19 +1558,19 @@
 <a id="scroll-top"></a>
 
 <!-- Javascript -->
-<script type="text/javascript" src="assets/js/jquery.min.js"></script>
-<script type="text/javascript" src="assets/js/plugins.js"></script>
-<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="assets/js/countTo.js"></script>
-<script type="text/javascript" src="assets/js/validate.js"></script>
-<script type="text/javascript" src="assets/js/shortcodes.js"></script>
-<script type="text/javascript" src="assets/js/main.js"></script>
+<script type="text/javascript" src="static/js/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/plugins.js"></script>
+<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="static/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="static/js/countTo.js"></script>
+<script type="text/javascript" src="static/js/validate.js"></script>
+<script type="text/javascript" src="static/js/shortcodes.js"></script>
+<script type="text/javascript" src="static/js/main.js"></script>
 
 <!-- Revolution Slider -->
 <script type="text/javascript" src="includes/rev-slider/js/jquery.themepunch.tools.min.js"></script>
 <script type="text/javascript" src="includes/rev-slider/js/jquery.themepunch.revolution.min.js"></script>
-<script type="text/javascript" src="assets/js/rev-slider.js"></script>
+<script type="text/javascript" src="static/js/rev-slider.js"></script>
 <!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->  
 <script type="text/javascript" src="includes/rev-slider/js/extensions/revolution.extension.actions.min.js"></script>
 <script type="text/javascript" src="includes/rev-slider/js/extensions/revolution.extension.carousel.min.js"></script>

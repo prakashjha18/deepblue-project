@@ -8,11 +8,11 @@ from sklearn.externals import joblib
 
 # Importing the dataset
 
-dataset = pd.read_csv(r"C:\Users\abc\.spyder-py3\predict queue wait time\pqtdoctor.csv")
+dataset = pd.read_csv(r"C:\Users\abc\.spyder-py3\predict queue wait time\pqtdoctor2.csv")
 dataset=dataset.iloc[:,0:6]
 datacor=dataset.corr()
 dataset.corr()
-X = dataset.iloc[:, [1,5]].values
+X = dataset.iloc[:, 0:3].values
 X6 =  dataset.iloc[:, 1].values
 
 # y = dataset.iloc[:, 3].values
@@ -30,6 +30,7 @@ sc_y = StandardScaler()
 y_train = sc_y.fit_transform(y_train.reshape(-1,1))"""
 
 # Using the elbow method to find the optimal number of clusters
+X = dataset.iloc[:, [1,4]].values
 from sklearn.cluster import KMeans
 wcss = []
 for i in range(1, 11):
@@ -61,7 +62,7 @@ plt.show()
 
 
 X = dataset.iloc[:, 0:3].values
-y = dataset.iloc[:, 5].values
+y = dataset.iloc[:, 4].values
 
 
 from sklearn.model_selection import train_test_split
@@ -111,7 +112,7 @@ knn_from_joblib = joblib.load(pklout)
 # Use the loaded model to make predictions 
 knn_from_joblib.predict(X_test) 
 
-ini_array = np.array([[1, 18, 1]])
+ini_array = np.array([[1, 28, 1]])
 str2 = knn_from_joblib.predict(ini_array) 
 print(str2)
 

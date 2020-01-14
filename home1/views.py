@@ -30,7 +30,15 @@ def register(request):
         p = PatientRegstration(patient_name=pname,gender=gen,patient_type=int(ptype), age=page)
         p.save()
         print(pname,page,ptype,pgender)
-        # return HttpResponse("kwehfke")
+        pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\kmeansage.pkl","rb")
+        kmeans_from_joblib = joblib.load(pklout)
+        y = kmeans_from_joblib.predict([[int(page),14]]) 
+        pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")
+        knn_from_joblib = joblib.load(pklout)
+        ini_array = np.array([[int(ptype), gen, y]])
+        str2 = knn_from_joblib.predict(ini_array) 
+        
+        return render(request,'predict.html',{'f':str2,'y':y})
     else:
         return render(request,'register.html')
     

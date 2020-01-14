@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>
+            Register
+        </title>
+    </head>
+    <body>
+        <label>
+            <strong>
+                REGISTER
+            </strong>
+        </label>
+        <form name="Register" method="post">
+            {% csrf_token %} 
+        <p>
+            <label>Patient Name :</label>
+            <input type="text" name="pname">
+        </p>
+        <p>
+            <label>Patient Age :</label>
+            <input type="number" name="age">
+        </p>
+        <p>
+            <label>Patient Type :</label>
+            <select name = "ptype"> 
+                <option value="1">Daigonistics</option> 
+                <option value="2">Follow Up</option> 
+                <option value="3">Prevention</option> 
+                <option value="4">Emergency</option>
+            </select>
+        </p>
+        <p>
+            <label>Gender :</label>
+                <input type="radio" name="gender" value="male" checked> Male<br>
+                <input type="radio" name="gender" value="female"> Female<br>
+                <input type="radio" name="gender" value="other"> Other
+        </p>
+        <p>
+            <input type="submit" name="submit">
+        </p>
+    </form>
+    </body>
+</html>

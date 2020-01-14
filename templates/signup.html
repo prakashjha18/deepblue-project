@@ -127,6 +127,8 @@
     </header><!-- /#site-header -->
 </div><!-- /#site-header-wrap -->
 <br><br><br><br><br>
+<form action="signup" method="post">
+    {% csrf_token %}
                     <div class="col-md-12">
                                     <div class="wprt-content-box request-form-1 bg-white">
                                         <div class="inner">
@@ -135,8 +137,6 @@
                                             </div><!-- /.wprt-headings -->
 
                                             <div class="wprt-spacer clearfix" data-desktop="30" data-mobi="30" data-smobi="30"></div>
-
-                                            <form action="https://xincomblog.com/html5-templates/medical/includes/contact/contact-process.php" method="post" class="contact-form wpcf7-form" novalidate="novalidate">
                                                 <div class="wprt-contact-form-1">
                                                     <span class="wpcf7-form-control-wrap name">
                                                         <input type="text" tabindex="1" id="username" name="username" value="" class="wpcf7-form-control" placeholder="UserName *" required="">
@@ -156,19 +156,19 @@
                                                     </span>
                                                     <br><br>
                                                     <span class="wpcf7-form-control-wrap date">
-                                                        <input type="password" tabindex="2" id="password" name="confirmpassword" value="" class="wpcf7-form-control" placeholder="Confirm Password *" required="">
+                                                        <input type="password" tabindex="2" id="confirmpassword" name="confirmpassword" value="" class="wpcf7-form-control" placeholder="Confirm Password *" required="">
                                                     </span>
                                 
                                                     <div class="wrap-submit">
                                                         <input type="submit" value="SUBMIT NOW" class="submit wpcf7-form-control wpcf7-submit" id="submit" name="submit">
                                                     </div>
                                                 </div>
-                                            </form>
+                                           
                                         </div>
                                     </div><!-- /.wprt-content-box -->
                         </div><!-- /.col-md-6 -->
 
-                               
+</form>                             
 <!-- Footer -->
 <footer id="footer">
     <div id="footer-widgets" class="wprt-container">

@@ -127,6 +127,8 @@
     </header><!-- /#site-header -->
 </div><!-- /#site-header-wrap -->
 <br><br><br><br><br>
+<form action="login" method="post">
+    {% csrf_token %}
                     <div class="col-md-12">
                                     <div class="wprt-content-box request-form-1 bg-white">
                                         <div class="inner">
@@ -157,7 +159,7 @@
                                         </div>
                                     </div><!-- /.wprt-content-box -->
                         </div><!-- /.col-md-6 -->
-
+</form>
                                
 <!-- Footer -->
 <footer id="footer">

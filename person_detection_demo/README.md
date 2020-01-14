@@ -14,6 +14,8 @@ You can download the test video.
 
 Just copy and run the code in your ide.
 
+The code will give output of no. of persons in every frame in `peron_log.txt` file which will be created automatically
+
 ### Note
 
 un-comment the lines for live video output--->(they are commented as `cv2.imshow()` does not run on Google Colab)

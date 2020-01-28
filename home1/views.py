@@ -62,7 +62,7 @@ def register(request):
             gen=0
         else:
             gen =1
-        p = PatientRegstration(patient_name=pname,gender=gen,patient_type=int(ptype), age=page)
+        p = PatientRegstration(patient_name=pname,gender=gen,patient_type=int(ptype), age=page,isinqueue=1,predictedtime=9,actualtime=9)
         p.save()
         print(pname,page,ptype,pgender)
         pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\kmeansage.pkl","rb")

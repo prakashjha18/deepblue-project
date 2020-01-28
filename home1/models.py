@@ -15,6 +15,9 @@ class PatientRegstration(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     patient_type = models.CharField(max_length=200)
     age = models.IntegerField()
+    isinqueue =  models.IntegerField()
+    predictedtime  =  models.IntegerField()
+    actualtime = models.IntegerField()
     # def super(). __init__(self):
     #     return self.patient_id
     def __str__(self):

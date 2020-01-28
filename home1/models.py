@@ -27,3 +27,4 @@ class PatientRegstration(models.Model):
         return self.created_at
     def patientType(self):
         return self.patient_type
+

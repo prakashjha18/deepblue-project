@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-# from sklearn.externals import joblib
+from sklearn.externals import joblib
 import numpy as np
 # Create your views here.
 from django.contrib import messages
@@ -58,18 +58,16 @@ def register(request):
         ptype = request.POST['ptype']
         pgender = request.POST['gender']
         gen = 0
-        patient_type = 1
         if(pgender=='male'):
             gen=0
         else:
             gen =1
-
         p = PatientRegstration(patient_name=pname,gender=gen,patient_type=int(ptype), age=page)
         p.save()
         print(pname,page,ptype,pgender)
         pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\kmeansage.pkl","rb")
         kmeans_from_joblib = joblib.load(pklout)
-        y = kmeans_from_joblib.predict([[int(page),14]]) 
+        y = kmeans_from_joblib.predict([[int(page)]]) 
         pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")
         knn_from_joblib = joblib.load(pklout)
         ini_array = np.array([[int(ptype), gen, y]])
@@ -78,8 +76,6 @@ def register(request):
         return render(request,'predict.html',{'f':str2,'y':y})
     else:
         return render(request,'register.html')
-
-    
 
 # def predict(request):
 #     pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")

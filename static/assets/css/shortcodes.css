@@ -389,7 +389,7 @@
 
 .wprt-contact-form-1 .wpcf7-form-control-wrap.message textarea { height: 150px;  margin-bottom: 30px; }
 .wprt-contact-form-1 .wrap-submit { text-align: left; }
-.wprt-contact-form-1 .wrap-submit .submit { padding: 18px 36px;margin-top: 60px;margin-left:600px;width: 15% ;text-align: center; }
+.wprt-contact-form-1 .wrap-submit .submit { padding: 18px 36px;margin-top: 60px;text-align: center;}
 .wprt-contact-form-1 .wpcf7-form-control-wrap { position: relative; }
 .wprt-contact-form-1 .wpcf7-form-control-wrap label.error { position: absolute; right: 15px; top: 12px; color: #e82727; font-size: 14px; }
 
@@ -401,6 +401,7 @@
 	.request-form-1 .wprt-contact-form-1 .wpcf7-form-control-wrap.departments, 
 	.request-form-1 .wprt-contact-form-1 .wpcf7-form-control-wrap.doctors { float: none; width: 100%; }
 	.wprt-content-box.request-form-1 { padding: 20px 15px 40px 15px; }
+	
 }
 
 @media only screen and (max-width: 500px) {

@@ -3,8 +3,9 @@ from django.contrib import admin
 # from .forms import PatientRegstrationForm
 # Register your models here.
 
-from django.contrib import admin
+from .models import PatientRegstration
+from .models import DoctorInfo
 
-# admin.site.register(PatientRegstrationForm)
-# Register your models here.
+admin.site.register(PatientRegstration)
+admin.site.register(DoctorInfo)
 

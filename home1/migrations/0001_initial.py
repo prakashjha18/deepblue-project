@@ -20,9 +20,6 @@ class Migration(migrations.Migration):
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('patient_type', models.CharField(max_length=200)),
                 ('age', models.IntegerField()),
-                ('IsInqueue', models.IntegerField()),
-                ('predicted_time', models.IntegerField()),
-                ('Actual_time', models.IntegerField()),
             ],
         ),
     ]

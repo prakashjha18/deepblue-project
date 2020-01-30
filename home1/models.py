@@ -8,7 +8,10 @@ class DoctorInfo(models.Model):
     D_name = models.CharField(max_length=200)
     D_username = models.CharField(max_length=200,unique=True)
     D_email = models.EmailField(max_length=254,unique=True)
-    isavail = models.IntegerField()
+    Domains = [(1, 'Primary Health Care'), (2, 'Pediatric Clinic'), (3, 'Gynaecological Clinic'), (4, 'Pediatric Clinic')]
+    domain = models.IntegerField(choices = Domains)
+    choice = [(0, 'YES'), (1, 'NO')]
+    isavail = models.IntegerField(choices = choice)
     USERNAME_FIELD = 'D_username','D_email'
 
 class PatientRegstration(models.Model):

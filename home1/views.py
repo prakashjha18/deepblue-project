@@ -5,6 +5,7 @@ import joblib as joblib
 # Create your views here.
 from django.contrib import messages
 from .models import PatientRegstration
+from .models import DoctorInfo
 from django.contrib.auth.models import User, auth
 from django.shortcuts import render, redirect
 
@@ -50,6 +51,7 @@ def signup(request):
         return redirect('/')
         
     else:
+        doctrs = DoctorInfo.objects.all()
         return render(request,'signup.html')
  
 def register(request):
@@ -58,28 +60,30 @@ def register(request):
         page = request.POST['age']
         ptype = request.POST['ptype']
         pgender = request.POST['gender']
+        drid = request.POST['dtype']
+        drid = int(drid)
         gen = 0
         if(pgender=='male'):
             gen=0
         else:
             gen =1
-        p = PatientRegstration(patient_name=pname,gender=gen,patient_type=int(ptype), age=page,isinqueue=1,predictedtime=9,actualtime=9)
+        drs = DoctorInfo.objects.get(id=drid)
+        p = PatientRegstration(patient_name=pname,gender=gen,patient_type=int(ptype), age=page,isinqueue=0,predictedtime=9,actualtime=9,DoctorInfo=drs)
         p.save()
         print(pname,page,ptype,pgender)
-        pklout=open("C:\\Users\\rosha\\.spyder-py3\\predict queue wait time\\kmeansage.pkl","rb")
         
+        pklout =  open("C:\\Users\\Rajesh\\.spyder-py3\\predict queue wait time\\kmeansage.pkl","rb")
         kmeans_from_joblib = joblib.load(pklout)
         y = kmeans_from_joblib.predict([[int(page)]]) 
-        z=int(y)
-        pklout=open("C:\\Users\\rosha\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")
+        pklout =  open("C:\\Users\\Rajesh\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")
         knn_from_joblib = joblib.load(pklout)
-        ini_array = np.array([[int(ptype), int(gen), z]])
-        str2 = knn_from_joblib.predict(ini_array) 
-            
+        ini_array = np.array([[int(ptype), gen, y]])
+        str2 = knn_from_joblib.predict(ini_array)  
         return render(request,'predict.html',{'f':str2,'y':y})
         # return render(request, 'register.html')
     else:
-        return render(request,'register.html')
+        doctrs = DoctorInfo.objects.all()
+        return render(request,'register.html',{'doctrs':doctrs})
 
 # def predict(request):
 #     pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")

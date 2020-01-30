@@ -1,0 +1,101 @@
+                                    <div class="wprt-content-box request-form-1 bg-white">
+                                        <div class="inner">
+                                            <div class="wprt-headings clearfix text-left">
+                                                <h2 class="heading font-size-18">REQUEST APPOINTMENT</h2>
+                                            </div><!-- /.wprt-headings -->
+
+                                            <div class="wprt-spacer clearfix" data-desktop="30" data-mobi="30" data-smobi="30"></div>
+
+                                            <form action="https://xincomblog.com/html5-templates/medical/includes/contact/contact-process.php" method="post" class="contact-form wpcf7-form" novalidate="novalidate">
+                                                <div class="wprt-contact-form-1">
+                                                    <span class="wpcf7-form-control-wrap name">
+                                                        <input type="text" tabindex="1" id="name" name="name" value="" class="wpcf7-form-control" placeholder="Name *" required="">
+                                                    </span>
+
+                                                    <span class="wpcf7-form-control-wrap phone">
+                                                        <input type="email" tabindex="2" id="phone" name="phone" value="" class="wpcf7-form-control" placeholder="Phone *" required="">
+                                                    </span> 
+                                                  
+
+                                                    <span class="wpcf7-form-control-wrap email">
+                                                        <input type="email" tabindex="2" id="email" name="email" value="" class="wpcf7-form-control" placeholder="E-mail *" required="">
+                                                    </span>
+
+                                                    <span class="wpcf7-form-control-wrap date">
+                                                        <input type="text" tabindex="2" id="date" name="date" value="" class="wpcf7-form-control" placeholder="Date *" required="">
+                                                    </span> 
+
+                                                    <span class="wpcf7-form-control-wrap departments">
+                                                        <select name="departments" class="wpcf7-form-control">
+                                                            <option value="menu_order">Departments</option>
+                                                            <option value="popularity">Primary Health Care</option>
+                                                            <option value="popularity">Pediatric Clinic</option>
+                                                            <option value="popularity">Gynaecological Clinic</option>
+                                                            <option value="popularity">Outpatient Surgery</option>
+                                                            <option value="popularity">Cardiac Clinic</option>
+                                                        </select>
+                                                    </span> 
+
+                                                    <span class="wpcf7-form-control-wrap doctors">
+                                                        <select name="doctors" class="wpcf7-form-control">
+                                                            <option value="menu_order">Doctors</option>
+                                                            <option value="dr_ony_hammond">Dr. Tony Hammond</option>
+                                                            <option value="dr_terry_ludgrove">Dr. Terry Ludgrove</option>
+                                                            <option value="dr_gerry_saldanha">Dr. Gerry Saldanha</option>
+                                                        </select>
+                                                    </span> 
+
+                                                    <span class="wpcf7-form-control-wrap message">
+                                                        <textarea name="message" tabindex="5" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" placeholder="Message *" required=""></textarea>
+                                                    </span>
+
+                                                    <div class="wrap-submit">
+                                                        <input type="submit" value="SUBMIT NOW" class="submit wpcf7-form-control wpcf7-submit" id="submit" name="submit">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div><!-- /.wprt-content-box -->
+
+
+
+                                    from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth.models import User, auth
+
+def home(request):
+    return  render(request,'index.html')
+def login(request):
+    if request.method=='POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user=auth.authenticate(username=username,password=password)
+        if user is not None:
+            auth.login(request, user)
+            return redirect("/")
+        else:
+            messages.info(request,'invalid credentials')
+            return redirect('login')
+    else:
+        return render(request,'login.html') 
+
+
+
+def signup(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    confirmpassword = request.POST['confirmpassword']
+    email = request.POST['email']
+
+    if password==confirmpassword:
+            if User.objects.filter(username=username).exists():
+                messages.info(request,'Username Taken')
+                return redirect('signup')
+            elif User.objects.filter(email=email).exists():
+                messages.info(request,'Email Taken')
+                return redirect('signup')
+            else:   
+                user = User.objects.create_user(username=username, password=password, email=email)
+                user.save()
+                print('user created')
+                return redirect('login')

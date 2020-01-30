@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from sklearn.externals import joblib
 import numpy as np
+import joblib as joblib
 # Create your views here.
 from django.contrib import messages
 from .models import PatientRegstration
@@ -65,13 +66,26 @@ def register(request):
         p = PatientRegstration(patient_name=pname,gender=gen,patient_type=int(ptype), age=page,isinqueue=1,predictedtime=9,actualtime=9)
         p.save()
         print(pname,page,ptype,pgender)
+<<<<<<< Updated upstream
         pklout =  open("C:\\Users\\Rajesh\\.spyder-py3\\predict queue wait time\\kmeansage.pkl","rb")
         kmeans_from_joblib = joblib.load(pklout)
         y = kmeans_from_joblib.predict([[int(page)]]) 
         pklout =  open("C:\\Users\\Rajesh\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")
+=======
+        pklout=open("C:\\Users\\rosha\\.spyder-py3\\predict queue wait time\\kmeansage.pkl","rb")
+        
+        kmeans_from_joblib = joblib.load(pklout)
+        y = kmeans_from_joblib.predict([[int(page)]]) 
+        z=int(y)
+        pklout=open("C:\\Users\\rosha\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")
+>>>>>>> Stashed changes
         knn_from_joblib = joblib.load(pklout)
-        ini_array = np.array([[int(ptype), gen, y]])
+        ini_array = np.array([[int(ptype), int(gen), z]])
         str2 = knn_from_joblib.predict(ini_array) 
+<<<<<<< Updated upstream
+=======
+            
+>>>>>>> Stashed changes
         return render(request,'predict.html',{'f':str2,'y':y})
         # return render(request, 'register.html')
     else:

@@ -182,7 +182,7 @@ input[type="email"],
 input[type="url"],
 input[type="search"],
 input[type="tel"],
-input[type="color"] { margin-bottom: 20px; border: 1px solid #f1f1f1; padding: 11px 25px; background-color: #fff; font-size: 14px; line-height: inherit; width: 100%; height: auto; text-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-transition: border ease .238s; -moz-transition: border ease .238s; transition: border ease .238s; }
+input[type="color"] { margin-bottom: 20px; border: 1px solid #f1f1f1; padding: 11px 25px; background-color: #fff; font-size: 14px; line-height: inherit; width: 40%; height: auto; text-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-transition: border ease .238s; -moz-transition: border ease .238s; transition: border ease .238s; }
 
 /* Contact Form 7 */
 .wpcf7-form select,

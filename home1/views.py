@@ -97,6 +97,7 @@ def checkdrstatus(request,drid):
     for patient in patients:
         sum+=patient.predictedtime
     return render(request,'checkstatus.html',{'patients':patients,'sum':sum})
+
 def removefromqueue(request,ptid):
     if request.method == "POST":
         actualtime = request.POST['actualtime']
@@ -110,6 +111,13 @@ def removefromqueue(request,ptid):
         patient = PatientRegstration.objects.get(patient_id=ptid)
         return render(request,'enteractualtime.html',{'patient':patient})
 
+def realtimestatus(request):
+    fileHandle = open ('C:\\Users\\abc\\person_log.txt',"r" )
+    lineList = fileHandle.readlines()
+    fileHandle.close()
+    l = lineList[-1]
+    #return HttpResponse(l)
+    return render(request,'realtimestatusreception.html',{'l':l})
 
 # def predict(request):
 #     pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")

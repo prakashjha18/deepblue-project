@@ -10,7 +10,7 @@ class DoctorInfo(models.Model):
     D_email = models.EmailField(max_length=254,unique=True)
     Domains = [(1, 'Primary Health Care'), (2, 'Pediatric Clinic'), (3, 'Gynaecological Clinic'), (4, 'Pediatric Clinic')]
     domain = models.IntegerField(choices = Domains)
-    choice = [(0, 'YES'), (1, 'NO')]
+    choice = [(0, 'NO'), (1, 'YES')]
     isavail = models.IntegerField(choices = choice)
     USERNAME_FIELD = 'D_username','D_email'
 
@@ -20,12 +20,12 @@ class PatientRegstration(models.Model):
     GENDER_MALE = 0
     GENDER_FEMALE = 1
     Gender_choices = [(GENDER_MALE, 'Male'), (GENDER_FEMALE, 'Female')]
-    patient_choices = Gender_choices = [(1, 'Diagonistics'), (2, 'Followup'), (3, 'Prevention'), (4, 'Emergency')]
+    patient_choices =[(1, 'Diagonistics'), (2, 'Followup'), (3, 'Prevention'), (4, 'Emergency')]
     gender = models.IntegerField(choices=Gender_choices)
     created_at = models.DateTimeField(auto_now_add=True)
     patient_type = models.IntegerField(choices=patient_choices)
     age = models.IntegerField()
-    queue_choices = [(0, 'YES'), (1, 'NO')]
+    queue_choices = [(0, 'NO'), (1, 'YES')]
     isinqueue =  models.IntegerField(choices=queue_choices)
     predictedtime  =  models.IntegerField()
     actualtime = models.IntegerField()

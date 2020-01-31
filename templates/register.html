@@ -135,15 +135,18 @@
             <div class="col-md-6 col-lg-6 col-sm-6">
 
             </div> 
+            
             <label>Patient Name :</label>
-            <input type="text" name="pname">
+           
+            <input type="text" name="pname" class="text1" >
+           
         </div>
         <div class="row col-lg-12 col-md-12 col-sm-12">   
             <div class="col-md-6 col-lg-6 col-sm-6">
     
             </div> 
             <label>Patient Age :</label>
-            <input type="number" name="page">
+            <input type="number" name="page" class="text1">
         </div>
         <div class="row col-lg-12 col-md-12 col-sm-12">   
             <div class="col-md-6 col-lg-6 col-sm-6">
@@ -166,8 +169,8 @@
     <label>Doctor Name :</label>
     <select name = "dtype"> 
         {% for doctr in doctrs %}
-            <option value="{{doctr.id}}">{{doctr.D_name}} department {{doctr.domain}}</option> 
-        {%endfor%}
+        <option value="{{doctr.id}}">{{doctr.D_name}} department {{doctr.domain}}</option>
+        {%endfor %}
     </select>
     <br>
     <br>
@@ -365,4 +368,3 @@
 
 <!-- Mirrored from xincomblog.com/html5-templates/medical/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Jan 2020 06:31:23 GMT -->
 </html>
-

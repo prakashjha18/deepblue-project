@@ -68,8 +68,7 @@ def register(request):
         else:
             gen =1
         drs = DoctorInfo.objects.get(id=drid)
-        p = PatientRegstration(patient_name=pname,gender=gen,patient_type=int(ptype), age=page,isinqueue=0,predictedtime=9,actualtime=9,DoctorInfo=drs)
-        p.save()
+        
         print(pname,page,ptype,pgender)
         
         pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\kmeansage.pkl","rb")
@@ -79,11 +78,38 @@ def register(request):
         knn_from_joblib = joblib.load(pklout)
         ini_array = np.array([[int(ptype), gen, y]])
         str2 = knn_from_joblib.predict(ini_array)  
+        p = PatientRegstration(patient_name=pname,gender=gen,patient_type=int(ptype), age=page,isinqueue=1,predictedtime=int(str2),actualtime=0,DoctorInfo=drs)
+        p.save()
         return render(request,'predict.html',{'f':str2,'y':y})
         # return render(request, 'register.html')
     else:
         doctrs = DoctorInfo.objects.all()
         return render(request,'register.html',{'doctrs':doctrs})
+def availDoctrs(request):
+    doctrs = DoctorInfo.objects.all()
+
+    #return HttpResponse(dict[0])
+    return render(request,'availDoctrs.html',{'doctrs':doctrs})
+
+def checkdrstatus(request,drid):
+    patients = PatientRegstration.objects.filter(DoctorInfo_id = drid,isinqueue=1 )
+    sum  = 0
+    for patient in patients:
+        sum+=patient.predictedtime
+    return render(request,'checkstatus.html',{'patients':patients,'sum':sum})
+def removefromqueue(request,ptid):
+    if request.method == "POST":
+        actualtime = request.POST['actualtime']
+        patient = PatientRegstration.objects.get(patient_id=ptid)
+        patient.actualtime = actualtime
+        patient.isinqueue = 0
+        patient.save()
+        doctrs = DoctorInfo.objects.all()
+        return render(request,'availDoctrs.html',{'doctrs':doctrs})
+    else:
+        patient = PatientRegstration.objects.get(patient_id=ptid)
+        return render(request,'enteractualtime.html',{'patient':patient})
+
 
 # def predict(request):
 #     pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")

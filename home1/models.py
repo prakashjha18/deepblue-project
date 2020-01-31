@@ -43,6 +43,3 @@ class PatientRegstration(models.Model):
     def patientType(self):
         return self.patient_type
 
-
-    
-

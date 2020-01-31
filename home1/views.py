@@ -57,7 +57,7 @@ def signup(request):
 def register(request):
     if request.method == "POST":
         pname = request.POST['pname']
-        page = request.POST['age']
+        page = request.POST['page']
         ptype = request.POST['ptype']
         pgender = request.POST['gender']
         drid = request.POST['dtype']
@@ -72,10 +72,10 @@ def register(request):
         p.save()
         print(pname,page,ptype,pgender)
         
-        pklout =  open("C:\\Users\\Rajesh\\.spyder-py3\\predict queue wait time\\kmeansage.pkl","rb")
+        pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\kmeansage.pkl","rb")
         kmeans_from_joblib = joblib.load(pklout)
         y = kmeans_from_joblib.predict([[int(page)]]) 
-        pklout =  open("C:\\Users\\Rajesh\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")
+        pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")
         knn_from_joblib = joblib.load(pklout)
         ini_array = np.array([[int(ptype), gen, y]])
         str2 = knn_from_joblib.predict(ini_array)  

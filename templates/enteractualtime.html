@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form name="enteractualtime" method="post">
+        {% csrf_token %} 
+        <label>Patient Name :</label>
+           
+        <input type="text" name="pname" class="text1" value={{patient.patient_name}} disabled><br>
+        <label>predicted time :</label>
+        <input type="text" name="predictedtime" class="text1" value={{patient.predictedtime}} disabled><br>
+        <label>enter actual time taken</label>
+        <input type="number" name="actualtime" class="text1" required>
+        <div class=submit2>
+            <div class="wrap-submit" >
+                <input type="submit" value="submit and remove from queue" class="submit wpcf7-form-control wpcf7-submit" id="submit" name="submit">
+            </div>
+        </div>
+    </form>
+</body>
+</html>

@@ -9,8 +9,10 @@
 <body>
     {% for patient in patients %}
 
-                <h3>id: {{patient.patient_id}} {{patient.patient_name}}
+                <h3>id: {{patient.patient_id}} {{patient.patient_name}}</h3>
+                <a href="/removefromqueue/patient/{{patient.patient_id}}">remove from queue and and enter actual time taken</a><br><br>
     {%endfor%}
-    {{sum}}
+    
+    current wait time is {{sum}} minutes    
 </body>
 </html>

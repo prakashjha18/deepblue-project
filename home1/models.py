@@ -20,7 +20,7 @@ class PatientRegstration(models.Model):
     GENDER_MALE = 0
     GENDER_FEMALE = 1
     Gender_choices = [(GENDER_MALE, 'Male'), (GENDER_FEMALE, 'Female')]
-    patient_choices = Gender_choices = [(1, 'Diagonistics'), (2, 'Followup'), (3, 'Prevention'), (4, 'Emergency')]
+    patient_choices =[(1, 'Diagonistics'), (2, 'Followup'), (3, 'Prevention'), (4, 'Emergency')]
     gender = models.IntegerField(choices=Gender_choices)
     created_at = models.DateTimeField(auto_now_add=True)
     patient_type = models.IntegerField(choices=patient_choices)

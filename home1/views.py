@@ -57,7 +57,7 @@ def signup(request):
 def register(request):
     if request.method == "POST":
         pname = request.POST['pname']
-        page = request.POST['age']
+        page = request.POST['page']
         ptype = request.POST['ptype']
         pgender = request.POST['gender']
         drid = request.POST['dtype']
@@ -71,7 +71,6 @@ def register(request):
         p = PatientRegstration(patient_name=pname,gender=gen,patient_type=int(ptype), age=page,isinqueue=0,predictedtime=9,actualtime=9,DoctorInfo=drs)
         p.save()
         print(pname,page,ptype,pgender)
-        
         pklout =  open("C:\\Users\\Rajesh\\.spyder-py3\\predict queue wait time\\kmeansage.pkl","rb")
         kmeans_from_joblib = joblib.load(pklout)
         y = kmeans_from_joblib.predict([[int(page)]]) 
@@ -84,6 +83,18 @@ def register(request):
     else:
         doctrs = DoctorInfo.objects.all()
         return render(request,'register.html',{'doctrs':doctrs})
+def availDoctrs(request):
+    doctrs = DoctorInfo.objects.all()
+
+    #return HttpResponse(dict[0])
+    return render(request,'availDoctrs.html',{'doctrs':doctrs})
+
+def checkdrstatus(request,drid):
+    patients = PatientRegstration.objects.filter(DoctorInfo_id = drid,isinqueue=1 )
+    sum  = 0
+    for patient in patients:
+        sum+=patient.predictedtime
+    return render(request,'checkstatus.html',{'patients':patients,'sum':sum})
 
 # def predict(request):
 #     pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")

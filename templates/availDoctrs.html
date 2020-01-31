@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {% for doctr in doctrs %}
+    
+                <h3>id: {{doctr.id}} {{doctr.D_name}} department: {{doctr.domain}} isvail: {% if doctr.isavail == 0 %}
+                                                                                               yes
+                                                                                            {%else%}   
+                                                                                        no 
+                                                                                    {%endif%} <a href="/checkstatus/{{doctr.id}}">CHECK STATUS</a> </h3>
+    {%endfor%}
+    
+</body>
+</html>

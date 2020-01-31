@@ -106,7 +106,8 @@ def removefromqueue(request,ptid):
         patient.isinqueue = 0
         patient.save()
         doctrs = DoctorInfo.objects.all()
-        return render(request,'availDoctrs.html',{'doctrs':doctrs})
+        response = redirect('availDoctrs')
+        return response
     else:
         patient = PatientRegstration.objects.get(patient_id=ptid)
         return render(request,'enteractualtime.html',{'patient':patient})

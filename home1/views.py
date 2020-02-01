@@ -2,13 +2,15 @@ from django.http import HttpResponse
 from sklearn.externals import joblib
 import numpy as np
 import joblib as joblib
+import psycopg2
+import csv
+import codecs
 # Create your views here.
 from django.contrib import messages
 from .models import PatientRegstration
 from .models import DoctorInfo
 from django.contrib.auth.models import User, auth
 from django.shortcuts import render, redirect
-
 
 def home(request):
     return  render(request,'index.html')
@@ -77,7 +79,7 @@ def register(request):
         knn_from_joblib = joblib.load(pklout)
         ini_array = np.array([[int(ptype), gen, y]])
         str2 = knn_from_joblib.predict(ini_array)  
-        p = PatientRegstration(patient_name=pname,gender=gen,patient_type=int(ptype), age=page,isinqueue=1,predictedtime=int(str2),actualtime=0,DoctorInfo=drs)
+        p = PatientRegstration(patient_name=pname,gender=gen,patient_type=int(ptype),age=page,isinqueue=1,predictedtime=int(str2),actualtime=0,DoctorInfo=drs)
         p.save()
         return render(request,'predict.html',{'f':str2,'y':y})
         # return render(request, 'register.html')
@@ -91,7 +93,7 @@ def availDoctrs(request):
     return render(request,'availDoctrs.html',{'doctrs':doctrs})
 
 def checkdrstatus(request,drid):
-    patients = PatientRegstration.objects.filter(DoctorInfo_id = drid,isinqueue=1 )
+    patients = PatientRegstration.objects.filter(DoctorInfo_id = drid,isinqueue=1)
     sum  = 0
     for patient in patients:
         sum+=patient.predictedtime
@@ -103,12 +105,17 @@ def removefromqueue(request,ptid):
         patient.actualtime = actualtime
         patient.isinqueue = 0
         patient.save()
+        field_names = [patient.patient_type, patient.age, patient.gender, patient.created_at, patient.actualtime]
+        with codecs.open("C:/Users/RAJESH/Desktop/dataset(2).csv","ab", encoding='utf-8') as logfile:
+            logger = csv.DictWriter(logfile, fieldnames=field_names)
+            logger.writeheader()
         doctrs = DoctorInfo.objects.all()
-        return render(request,'availDoctrs.html',{'doctrs':doctrs})
+        response = redirect('availDoctrs')
+        return response
+
     else:
         patient = PatientRegstration.objects.get(patient_id=ptid)
         return render(request,'enteractualtime.html',{'patient':patient})
-
 
 # def predict(request):
 #     pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")

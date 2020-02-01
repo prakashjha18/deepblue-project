@@ -20,12 +20,13 @@ class PatientRegstration(models.Model):
     GENDER_MALE = 0
     GENDER_FEMALE = 1
     Gender_choices = [(GENDER_MALE, 'Male'), (GENDER_FEMALE, 'Female')]
-    patient_choices = Gender_choices = [(1, 'Diagonistics'), (2, 'Followup'), (3, 'Prevention'), (4, 'Emergency')]
+    patient_choices=[(1, 'Diagonistics'), (2, 'Followup'), (3, 'Prevention'), (4, 'Emergency')]
+    email=models.CharField(max_length=200)
     gender = models.IntegerField(choices=Gender_choices)
     created_at = models.DateTimeField(auto_now_add=True)
     patient_type = models.IntegerField(choices=patient_choices)
     age = models.IntegerField()
-    queue_choices = [(0, 'YES'), (1, 'NO')]
+    queue_choices = [(1, 'YES'), (0, 'NO')]
     isinqueue =  models.IntegerField(choices=queue_choices)
     predictedtime  =  models.IntegerField()
     actualtime = models.IntegerField()

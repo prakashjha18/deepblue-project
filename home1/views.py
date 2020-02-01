@@ -72,10 +72,11 @@ def register(request):
         drs = DoctorInfo.objects.get(id=drid)
         
         print(pname,page,ptype,pgender)
-        pklout =  open("C:\\Users\\Rajesh\\.spyder-py3\\predict queue wait time\\kmeansage.pkl","rb")
+        
+        pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\kmeansage.pkl","rb")
         kmeans_from_joblib = joblib.load(pklout)
         y = kmeans_from_joblib.predict([[int(page)]]) 
-        pklout =  open("C:\\Users\\Rajesh\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")
+        pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")
         knn_from_joblib = joblib.load(pklout)
         ini_array = np.array([[int(ptype), gen, y]])
         str2 = knn_from_joblib.predict(ini_array)  
@@ -98,6 +99,7 @@ def checkdrstatus(request,drid):
     for patient in patients:
         sum+=patient.predictedtime
     return render(request,'checkstatus.html',{'patients':patients,'sum':sum})
+
 def removefromqueue(request,ptid):
     if request.method == "POST":
         actualtime = request.POST['actualtime']
@@ -112,10 +114,17 @@ def removefromqueue(request,ptid):
         doctrs = DoctorInfo.objects.all()
         response = redirect('availDoctrs')
         return response
-
     else:
         patient = PatientRegstration.objects.get(patient_id=ptid)
         return render(request,'enteractualtime.html',{'patient':patient})
+
+def realtimestatus(request):
+    fileHandle = open ('C:\\Users\\abc\\person_log.txt',"r" )
+    lineList = fileHandle.readlines()
+    fileHandle.close()
+    l = lineList[-1]
+    #return HttpResponse(l)
+    return render(request,'realtimestatusreception.html',{'l':l})
 
 # def predict(request):
 #     pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")

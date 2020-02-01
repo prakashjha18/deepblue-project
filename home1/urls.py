@@ -10,6 +10,6 @@ path("availDoctrs",views.availDoctrs,name="availDoctrs"),
 path("checkstatus/<int:drid>",views.checkdrstatus,name="checkdrstatus"),
 path("removefromqueue/patient/<int:ptid>",views.removefromqueue,name="removefremqueue"),
 #path('predicttime',views.predict,name='predictp'),
+path("realtimestatus",views.realtimestatus,name="realtimestatus"),
 path('',views.home,name='home')
-
 ]

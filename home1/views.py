@@ -106,9 +106,10 @@ def removefromqueue(request,ptid):
         patient = PatientRegstration.objects.get(patient_id=ptid)
         patient.actualtime = actualtime
         patient.isinqueue = 0
+        tokenno=0
         patient.save()
-        field_names = [patient.patient_type, patient.age, patient.gender, patient.created_at, patient.actualtime]
-        with codecs.open("C:/Users/RAJESH/Desktop/dataset(2).csv","ab", encoding='utf-8') as logfile:
+        field_names = [patient.patient_type, patient.age, patient.gender, patient.created_at, patient.actualtime, tokenno]
+        with codecs.open("C:/Users/RAJESH/Desktop/dataset(2).csv","a", encoding='utf-8') as logfile:
             logger = csv.DictWriter(logfile, fieldnames=field_names)
             logger.writeheader()
         doctrs = DoctorInfo.objects.all()
@@ -119,7 +120,7 @@ def removefromqueue(request,ptid):
         return render(request,'enteractualtime.html',{'patient':patient})
 
 def realtimestatus(request):
-    fileHandle = open ('C:\\Users\\abc\\person_log.txt',"r" )
+    fileHandle = open ('C:\\Users\\RAJESH\\person_log.txt',"r" )
     lineList = fileHandle.readlines()
     fileHandle.close()
     l = lineList[-1]

@@ -82,38 +82,13 @@ def register(request):
         knn_from_joblib = joblib.load(pklout)
         ini_array = np.array([[int(ptype), gen, y]])
         str2 = knn_from_joblib.predict(ini_array)  
+        p = PatientRegstration(patient_name=pname,gender=gen,patient_type=int(ptype), age=page,isinqueue=1,predictedtime=int(str2),actualtime=0,DoctorInfo=drs)
+        p.save()
         return render(request,'predict.html',{'f':str2,'y':y})
         # return render(request, 'register.html')
     else:
         doctrs = DoctorInfo.objects.all()
         return render(request,'register.html',{'doctrs':doctrs})
-def availDoctrs(request):
-    doctrs=DoctorInfo.objects.all()
-    return render(request,'availDoctrs.html',{'doctrs':doctrs})
-def checkdrstatus(request,drid):
-    patients=PatientRegstration.objects.filter(DoctorInfo_id=drid,isinqueue=1)
-    sum=0
-    for patient in patients:
-        sum+=patient.predictedtime
-    return render(request,'checkstatus.html',{'patients':patients,'sum':sum})
-def removefromqueue(request,ptid):
-    if request.method=="POST":
-        actualtime=request.POST['actualtime']
-        patient =PatientRegstration.objects.get(patient_id=ptid)
-        patient.actualtime=actualtime
-        patient.isinqueue=0
-        patient.save()
-        doctrs=DoctorInfo.objects.all()
-        return render(request,'availDoctrs.html',{'doctrs':doctrs})
-    else:
-        patient=PatientRegstration.objects.get(patient_id=ptid)
-        return render(request,'enteractualtime.html',{'patient':patient})
-def history(request):
-    current_user=request.user
-    times  = PatientRegstration.objects.filter(email=current_user.email)
-    return render(request,'history.html',{'current_user':current_user,'times':times})
-
-    
 
 # def predict(request):
 #     pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")

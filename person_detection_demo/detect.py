@@ -19,10 +19,6 @@ hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
 imagePath = 'pedestrian_cut.mp4'
 cap = cv2.VideoCapture(imagePath)
 
-file = open("person_log.txt","a")
-
-file.write("----------------------New_log----------------------\n")
-
 while 1:
     ret, image = cap.read()
     if not ret:
@@ -54,24 +50,22 @@ while 1:
     for (xA, yA, xB, yB) in pick:
         cv2.rectangle(image, (xA, yA), (xB, yB), (0, 255, 0), 2)
     
-    
-    str1 = "No. of persons: " + str(len(rects)) + "\n"
-    
+    file = open("person_log.txt","a")
+    str1 = "No. of persons at reception : " + str(len(rects)) + "\n"
     file.write(str1)
+    file.close()
     
     # show some information on the number of bounding boxes
-#     filename = imagePath[imagePath.rfind("/") + 1:]
+    # filename = imagePath[imagePath.rfind("/") + 1:]
     print("[INFO] : {} original boxes, {} after suppression".format( len(rects), len(pick)))
 
     # show the output images
-    # cv2.imshow("Before NMS", orig)
-    # cv2.imshow("After NMS", image)
+    cv2.imshow("Before NMS", orig)
+    cv2.imshow("After NMS", image)
     print(ret)
         
     k = cv2.waitKey(30) & 0xff
     if k == 27:
         break
-file.write("----------------------Log_end----------------------\n")
-file.close()
 cap.release()
 cv2.destroyAllWindows()

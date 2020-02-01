@@ -13,5 +13,6 @@ path("dashboard",views.dashboard, name="dashboard"),
 path("history",views.history, name="history"),
 
 #path('predicttime',views.predict,name='predictp'),
+path("realtimestatus",views.realtimestatus,name="realtimestatus"),
 path('',views.home,name='home')
 ]

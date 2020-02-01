@@ -405,6 +405,25 @@
 .heading {
 	float: center;
 }
+.table{
+	margin-top: 30px;
+}
+.table-responsive-md{
+	margin-left: 30px;
+	width: 80%;
+}
+.form2{
+	margin-right: 100px;
+}
+.text1{
+	padding-left: 50px !important;
+}
+.form3{
+	width: 100%;
+}
+.form3.text1{
+	padding-left: 20px;
+}
 
 @media only screen and (max-width: 959px) { 
 	.request-form-1 .wprt-contact-form-1 .wpcf7-form-control-wrap.name, 

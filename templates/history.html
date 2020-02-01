@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>HI</h1>
+     hello : {{current_user.email}} this is yi=our history
+   {% for t in times %}
+        <tr>
+          
+          <td>{{t.patient_id}}</td>
+          <td>{{t.patient_name}}</td>
+          <td>{{t.created_at}}</td>
+          <td>{{t.actualtime}}</td>
+          <td>{{t.predictedtime}}</td>
+           <td> doctor name {{t.DoctorInfo.D_name}}</td>
+           <td> doctor name {{t.DoctorInfo.D_username}}</td>
+           <td> doctor name {{t.DoctorInfo.D_email}}</td>
+        </tr>
+        {%endfor%}
+</body>
+</html>

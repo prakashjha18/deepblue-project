@@ -21,12 +21,14 @@ def login(request):
         user = auth.authenticate(username=username,password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect("/")
+            return redirect("dashboard")
         else:
             messages.info(request,'invalid credentials')
             return redirect('login')
     else:
         return render(request,'login.html')
+def dashboard(request):
+    return  render(request,'dashboard.html')
 def signup(request): 
     if request.method == 'POST':
         username = request.POST['username']
@@ -63,6 +65,7 @@ def register(request):
         ptype = request.POST['ptype']
         pgender = request.POST['gender']
         drid = request.POST['dtype']
+        pemail=request.POST['pemail']
         drid = int(drid)
         gen = 0
         if(pgender=='male'):
@@ -70,13 +73,14 @@ def register(request):
         else:
             gen =1
         drs = DoctorInfo.objects.get(id=drid)
-        
+        p = PatientRegstration(patient_name=pname,gender=gen,patient_type=int(ptype), age=page,isinqueue=0,predictedtime=9,actualtime=9,DoctorInfo=drs,email=pemail)
+        p.save()
         print(pname,page,ptype,pgender)
         
-        pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\kmeansage.pkl","rb")
+        pklout =  open("C:\\Users\\rosha\\.spyder-py3\\predict queue wait time\\kmeansage.pkl","rb")
         kmeans_from_joblib = joblib.load(pklout)
         y = kmeans_from_joblib.predict([[int(page)]]) 
-        pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")
+        pklout =  open("C:\\Users\\rosha\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")
         knn_from_joblib = joblib.load(pklout)
         ini_array = np.array([[int(ptype), gen, y]])
         str2 = knn_from_joblib.predict(ini_array)  
@@ -87,8 +91,6 @@ def register(request):
     else:
         doctrs = DoctorInfo.objects.all()
         return render(request,'register.html',{'doctrs':doctrs})
-def availDoctrs(request):
-    doctrs = DoctorInfo.objects.all()
 
     #return HttpResponse(dict[0])
     return render(request,'availDoctrs.html',{'doctrs':doctrs})

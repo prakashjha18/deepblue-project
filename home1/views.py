@@ -14,6 +14,11 @@ from django.shortcuts import render, redirect
 
 def home(request):
     return  render(request,'index.html')
+def availDoctrs(request):
+    doctrs = DoctorInfo.objects.all()
+
+    #return HttpResponse(dict[0])
+    return render(request,'availDoctrs.html',{'doctrs':doctrs})
 def login(request):
     if request.method== 'POST':
         username = request.POST['username']
@@ -77,10 +82,10 @@ def register(request):
         p.save()
         print(pname,page,ptype,pgender)
         
-        pklout =  open("C:\\Users\\rosha\\.spyder-py3\\predict queue wait time\\kmeansage.pkl","rb")
+        pklout =  open("C:\\Users\\Rajesh\\.spyder-py3\\predict queue wait time\\kmeansage.pkl","rb")
         kmeans_from_joblib = joblib.load(pklout)
         y = kmeans_from_joblib.predict([[int(page)]]) 
-        pklout =  open("C:\\Users\\rosha\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")
+        pklout =  open("C:\\Users\\Rajesh\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")
         knn_from_joblib = joblib.load(pklout)
         ini_array = np.array([[int(ptype), gen, y]])
         str2 = knn_from_joblib.predict(ini_array)  
@@ -128,6 +133,10 @@ def realtimestatus(request):
     l = lineList[-1]
     #return HttpResponse(l)
     return render(request,'realtimestatusreception.html',{'l':l})
+def history(request):
+    current_user=request.user
+    times  = PatientRegstration.objects.filter(email=current_user.email)
+    return render(request,'history.html',{'current_user':current_user,'times':times})
 
 # def predict(request):
 #     pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")

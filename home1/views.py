@@ -11,6 +11,16 @@ from .models import PatientRegstration
 from .models import DoctorInfo
 from django.contrib.auth.models import User, auth
 from django.shortcuts import render, redirect
+from six.moves.urllib.parse import urlencode, quote # Python URL functions
+import urllib3 # Python URL functions
+from bs4 import BeautifulSoup
+import requests
+import json
+http=urllib3.PoolManager()
+
+import requests
+import json
+
 
 def home(request):
     return  render(request,'index.html')
@@ -99,7 +109,6 @@ def register(request):
     else:
         doctrs = DoctorInfo.objects.all()
         return render(request,'register.html',{'doctrs':doctrs})
-
     #return HttpResponse(dict[0])
     return render(request,'availDoctrs.html',{'doctrs':doctrs})
 

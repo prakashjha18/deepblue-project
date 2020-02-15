@@ -2,6 +2,9 @@ from django.http import HttpResponse
 from sklearn.externals import joblib
 import numpy as np
 import joblib as joblib
+import psycopg2
+import csv
+import codecs
 # Create your views here.
 from django.contrib import messages
 from .models import PatientRegstration
@@ -13,6 +16,7 @@ import urllib3 # Python URL functions
 from bs4 import BeautifulSoup
 import requests
 import json
+<<<<<<< HEAD
 import requests
 import json
 import datetime
@@ -49,10 +53,21 @@ def sendPostRequest(reqUrl, apiKey, secretKey, useType, phoneNo, senderId, textM
 
 
 
+=======
+http=urllib3.PoolManager()
+
+import requests
+import json
+>>>>>>> master
 
 
 def home(request):
     return  render(request,'index.html')
+def availDoctrs(request):
+    doctrs = DoctorInfo.objects.all()
+
+    #return HttpResponse(dict[0])
+    return render(request,'availDoctrs.html',{'doctrs':doctrs})
 def login(request):
     if request.method== 'POST':
         username = request.POST['username']
@@ -66,6 +81,9 @@ def login(request):
             return redirect('login')
     else:
         return render(request,'login.html')
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
 def dashboard(request):
     return  render(request,'dashboard.html')
 def signup(request): 
@@ -139,6 +157,7 @@ def register(request):
         # ini_array = np.array([[int(ptype), gen, y]])
         # str2 = knn_from_joblib.predict(ini_array)
         
+<<<<<<< HEAD
         now = datetime.datetime.now()
         pklout =  open("C:\\Users\\rosha\\.spyder-py3\\predict queue wait time\\rfpickle.pkl","rb")
         kmeans_from_joblib = joblib.load(pklout)
@@ -195,10 +214,23 @@ def register(request):
         
         return render(request,'predict.html',{'f':str2,'y':y,'sum':sum})
  
+=======
+        pklout =  open("C:\\Users\\Rajesh\\.spyder-py3\\predict queue wait time\\kmeansage.pkl","rb")
+        kmeans_from_joblib = joblib.load(pklout)
+        y = kmeans_from_joblib.predict([[int(page)]]) 
+        pklout =  open("C:\\Users\\Rajesh\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")
+        knn_from_joblib = joblib.load(pklout)
+        ini_array = np.array([[int(ptype), gen, y]])
+        str2 = knn_from_joblib.predict(ini_array)  
+        p = PatientRegstration(patient_name=pname,gender=gen,patient_type=int(ptype),age=page,isinqueue=1,predictedtime=int(str2),actualtime=0,DoctorInfo=drs)
+        p.save()
+        return render(request,'predict.html',{'f':str2,'y':y})
+>>>>>>> master
         # return render(request, 'register.html')
     else:
         doctrs = DoctorInfo.objects.all()
         return render(request,'register.html',{'doctrs':doctrs})
+<<<<<<< HEAD
 def availDoctrs(request):
     doctrs=DoctorInfo.objects.all()
     return render(request,'availDoctrs.html',{'doctrs':doctrs})
@@ -233,14 +265,54 @@ def history(request):
     return render(request,'history.html',{'current_user':current_user,'times':times})
 def realtimestatus(request):
     fileHandle = open ('C:\\Users\\rosha\\person_log.txt',"r" )
+=======
+    #return HttpResponse(dict[0])
+    return render(request,'availDoctrs.html',{'doctrs':doctrs})
+
+def checkdrstatus(request,drid):
+    patients = PatientRegstration.objects.filter(DoctorInfo_id = drid,isinqueue=1)
+    sum  = 0
+    for patient in patients:
+        sum+=patient.predictedtime
+    return render(request,'checkstatus.html',{'patients':patients,'sum':sum})
+
+def removefromqueue(request,ptid):
+    if request.method == "POST":
+        actualtime = request.POST['actualtime']
+        patient = PatientRegstration.objects.get(patient_id=ptid)
+        patient.actualtime = actualtime
+        patient.isinqueue = 0
+        tokenno=0
+        patient.save()
+        field_names = [patient.patient_type, patient.age, patient.gender, patient.created_at, patient.actualtime, tokenno]
+        with codecs.open("C:/Users/RAJESH/Desktop/dataset(2).csv","a", encoding='utf-8') as logfile:
+            logger = csv.DictWriter(logfile, fieldnames=field_names)
+            logger.writeheader()
+        doctrs = DoctorInfo.objects.all()
+        response = redirect('availDoctrs')
+        return response
+    else:
+        patient = PatientRegstration.objects.get(patient_id=ptid)
+        return render(request,'enteractualtime.html',{'patient':patient})
+
+def realtimestatus(request):
+    fileHandle = open ('C:\\Users\\RAJESH\\person_log.txt',"r" )
+>>>>>>> master
     lineList = fileHandle.readlines()
     fileHandle.close()
     l = lineList[-1]
     #return HttpResponse(l)
     return render(request,'realtimestatusreception.html',{'l':l})
+<<<<<<< HEAD
 def dailyanalysis(request):
     return render(request,'dailyanalysis.html')
     
+=======
+def history(request):
+    current_user=request.user
+    times  = PatientRegstration.objects.filter(email=current_user.email)
+    return render(request,'history.html',{'current_user':current_user,'times':times})
+>>>>>>> master
 
 # def predict(request):
 #     pklout =  open("C:\\Users\\abc\\.spyder-py3\\predict queue wait time\\randomforest.pkl","rb")

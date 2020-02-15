@@ -133,7 +133,7 @@
                         
                         <div class="inner">
                             <div class="wprt-headings clearfix text-left">
-                                <h2 class="heading font-size-24">LOG IN</h2>
+                                <h2 class="heading font-size-24"style="text-align: center">LOG IN</h2>
                             </div><!-- /.wprt-headings -->
                         <div class="container1">
                             <div class="row col-lg-12 col-md-12 col-sm-12">   
@@ -154,9 +154,17 @@
                                     <div class="wpcf7-form-control-wrap date">
                                         <input type="password" tabindex="2" id="password" name="password" value="" class="wpcf7-form-control" placeholder="Password *" required="">
                                     </div>
+                                    <div>
+                                        {% for message in messages %}
+                                        <p>
+                                        <h2 style="color: rgb(204, 25, 25); font: 1.5em sans-serif;margin-left: 700px;">{{message}}</h2>
+                                        {% endfor %}
+                                      </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        
                             <div class="row col-lg-12 col-md-12 col-sm-12">   
                                 <div class="col-md-5 col-lg-5 col-sm-5">
                                 </div>  

@@ -413,7 +413,6 @@ h6 a:hover { text-decoration: none }
 .custom.tparrows.tp-rightarrow:before { content: "\f105"; }
 .tp-bullets.custom .tp-bullet { width: 8px; height: 8px; border: 2px solid #fff; background-color: transparent; border-radius: 50%; -webkit-transition: border 0.3s background 0.3s; transition: border 0.3s background 0.3s; }
 .tp-bullets.custom .tp-bullet.selected { border-color: #ffb700; background-color: #ffb700; }
-
 /* Extra Grids
 -------------------------------------------------------------- */
 /* Clearfix */

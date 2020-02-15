@@ -144,9 +144,11 @@
 -------------------------------------------------------------- */
 .wprt-content-box.has-shadow > .inner { padding: 40px 30px 40px 30px; background-color: #fff; -webkit-box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.07); -moz-box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.07); box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.07); }
 .wprt-content-box .request-form-2,
-.wprt-content-box.request-form-1 { width:100%; padding: 40px 40px -40px 40px;margin:0px}
+.wprt-content-box.request-form-1 { padding: 70px 40px 40px 40px;margin-left: -20px;margin-right: -20px;min-height: 620px;}
 .wprt-content-box.style-1 p { margin-bottom: 0; }
-
+.container1{
+	margin-top: 100px;
+}
 .wprt-content-box.move-into-slider-home-2 { margin-top: -110px; -webkit-box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.07); -moz-box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.07); box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.07); }
 
 .wprt-content-box .info-box { float: left; width: 36.753%; }
@@ -178,7 +180,7 @@
 	.wprt-content-box .request-form-2 .wprt-contact-form-1 .wpcf7-form-control-wrap.phone, 
 	.wprt-content-box .request-form-2 .wprt-contact-form-1 .wpcf7-form-control-wrap.date, 
 	.wprt-content-box .request-form-2 .wprt-contact-form-1 .wpcf7-form-control-wrap.departments, 
-	.wprt-content-box .request-form-2 .wprt-contact-form-1 .wpcf7-form-control-wrap.doctors { float: none; width: 100%; }
+	.wprt-content-box .request-form-2 .wprt-contact-form-1 .wpcf7-form-control-wrap.doctors { float: left; width: 0%; }
 
 	.wprt-content-box .slogan-text { line-height: 50px; }
 }
@@ -372,29 +374,56 @@
 
 .wpcf7-form .wprt-contact-form-1 select, 
 .wpcf7-form .wprt-contact-form-1 textarea, 
-.wpcf7-form .wprt-contact-form-1 input { border-radius: 3px; }
+.wpcf7-form .wprt-contact-form-1 input { border-radius: 3px;width: 50%; float: left; }
 
 .wprt-contact-form-1 .wpcf7-form-control-wrap.name,
 .wprt-contact-form-1 .wpcf7-form-control-wrap.email,
 .wprt-contact-form-1 .wpcf7-form-control-wrap.phone,
-.wprt-contact-form-1 .wpcf7-form-control-wrap.departments,
-.wprt-contact-form-1 .wpcf7-form-control-wrap.doctors { width: 48.051%; float: left; }
-.wprt-contact-form-1 .wpcf7-form-control-wrap.date{margin-left: 0px;}
-
-.wprt-contact-form-1 .wpcf7-form-control-wrap.phone,
 .wprt-contact-form-1 .wpcf7-form-control-wrap.date,
-.wprt-contact-form-1 .wpcf7-form-control-wrap.doctors  { float: right; }
+.wprt-contact-form-1 .wpcf7-form-control-wrap.departments,
+.wprt-contact-form-1 .wpcf7-form-control-wrap.doctors { width: 48.051%; margin-left: 450px; }
 
-.wprt-contact-form-1 .wpcf7-form-control-wrap.message textarea { height: 150px;  margin-bottom: 30px; }
-<<<<<<< Updated upstream
-.wprt-contact-form-1 .wrap-submit { text-align: center !important; }
-.wprt-contact-form-1 .wrap-submit .submit { padding: 18px 36px;margin-top: 200px; }
-=======
-.wprt-contact-form-1 .wrap-submit { text-align: center; }
-.wprt-contact-form-1 .wrap-submit .submit { padding: 18px 36px;margin-top: 200px;text-align: center; }
->>>>>>> Stashed changes
-.wprt-contact-form-1 .wpcf7-form-control-wrap { position: relative; }
+
+
+.wprt-contact-form-1 .wpcf7-form-control-wrap.doctors  { float: right; }
+.wprt-contact-form-1 .wpcf7-form-control-wrap.phone{margin-top: 200px;}
+
+
+.wprt-contact-form-1 .wpcf7-form-control-wrap.message textarea { height: 150px;  margin-bottom: 30px;}
+.wprt-contact-form-1 .wrap-submit { text-align: center;margin-right: 35%;}
+.wprt-contact-form-1 .wrap-submit .submit {	padding: 18px 36px;margin-top: 20px;margin-left:50%;width: 200px ;text-align: center;}
+.wprt-contact-form-1 .wpcf7-form-control-wrap { position: relative;}
 .wprt-contact-form-1 .wpcf7-form-control-wrap label.error { position: absolute; right: 15px; top: 12px; color: #e82727; font-size: 14px; }
+.submit1{
+	margin-top:-200px ;
+	margin-left: 45%;
+}
+.submit2{
+	margin-top: 50px;
+	margin-left: 60%;
+}
+.heading {
+	float: center;
+}
+.table{
+	margin-top: 30px;
+}
+.table-responsive-md{
+	margin-left: 30px;
+	width: 80%;
+}
+.form2{
+	margin-right: 100px;
+}
+.text1{
+	padding-left: 50px !important;
+}
+.form3{
+	width: 100%;
+}
+.form3.text1{
+	padding-left: 20px;
+}
 
 @media only screen and (max-width: 959px) { 
 	.request-form-1 .wprt-contact-form-1 .wpcf7-form-control-wrap.name, 
@@ -404,6 +433,7 @@
 	.request-form-1 .wprt-contact-form-1 .wpcf7-form-control-wrap.departments, 
 	.request-form-1 .wprt-contact-form-1 .wpcf7-form-control-wrap.doctors { float: none; width: 100%; }
 	.wprt-content-box.request-form-1 { padding: 20px 15px 40px 15px; }
+	
 }
 
 @media only screen and (max-width: 500px) {

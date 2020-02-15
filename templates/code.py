@@ -8,7 +8,7 @@ from sklearn.externals import joblib
 
 # Importing the dataset
 
-dataset = pd.read_csv(r"C:\Users\abc\.spyder-py3\predict queue wait time\pqtdoctor2.csv")
+dataset = pd.read_csv(r"C:\Users\Rajesh\.spyder-py3\predict queue wait time\pqtdoctor2.csv")
 dataset=dataset.iloc[:,0:6]
 datacor=dataset.corr()
 dataset.corr()

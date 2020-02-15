@@ -26,6 +26,7 @@ class PatientRegstration(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     patient_type = models.IntegerField(choices=patient_choices)
     age = models.IntegerField()
+    number=models.CharField(max_length=200)
     queue_choices = [(1, 'YES'), (0, 'NO')]
     isinqueue =  models.IntegerField(choices=queue_choices)
     predictedtime  =  models.IntegerField()

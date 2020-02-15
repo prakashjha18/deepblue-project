@@ -128,6 +128,7 @@
 </div><!-- /#site-header-wrap -->
 <br><br><br><br><br>
 <div class="table-responsive-md">
+    {% if user.is_superuser %}
 <table class="table table-hover table-sm">
     <thead>
       <tr>
@@ -149,11 +150,12 @@
     </tbody>
 
  </table>   
+        {%endif%}
 </div>
         
                 
  
-    <h4>SUM OF WAIT TIMES IS: {{sum}}</h4>
+    <h4>SUM OF WAIT TIMES IS: {{sum}} minutes.</h4>
                   
     <footer id="footer">
         <div id="footer-widgets" class="wprt-container">

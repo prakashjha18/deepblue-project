@@ -107,9 +107,14 @@
                                         <li><a href="page-department-detail.html">Department detail</a></li>                              
                                     </ul>
                                 </li>
+                                {% if user.is_authenticated %}
+                                <li><a href="">Hello {{user.username}}</a></li>
+                                <li><a href="/logout">Logout</a></li>
+                                {% else %}
                                 <li><a href="/login">Login</a></li>
                                 <li><a href="/signup">Signup</a></li>
-                                <li><a href="page-time-table.html">Timetable</a></li>                                                                       
+                                <li><a href="page-time-table.html">Timetable</a></li>
+                                {% endif %}                                                                       
                             </ul>
                         </nav><!-- /#main-nav -->
                         
@@ -121,7 +126,6 @@
                         <button type="submit" class="header-search-submit" title="Search">Search</button>
                     </form>
                 </div><!-- /#header-search -->
-
             </div>
         </div><!-- /#site-header-inner -->
     </header><!-- /#site-header -->
@@ -147,7 +151,7 @@
           <td>{{doctr.id}}</td>
           <td>{{doctr.D_name}}</td>
           <td>{{doctr.domain}}</td>
-          <td>{% if doctr.isavail == 0 %}
+          <td>{% if doctr.isavail == 1 %}
             yes
          {%else%}   
          no 
@@ -162,7 +166,7 @@
     
 </table>
 </div>
- 
+
     
                
     <footer id="footer">

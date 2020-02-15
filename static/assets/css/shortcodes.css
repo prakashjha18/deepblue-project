@@ -2,7 +2,12 @@
 -------------------------------------------------------------- */
 .wprt-button { font-family: "Raleway", sans-serif; font-size: 12px; padding: 10px 20px; color: #fff; background-color: #448aff; font-weight: 600; border: 1px solid #448aff; display: inline-block; border-radius: 3px; -webkit-transition: all .238s; transition: all .238s; }
 .wprt-button:hover { background-color: #0d1a2f; border-color: #0d1a2f; color: #fff }
-
+.image1{
+	margin-top: 20px;
+}
+.container2{
+	margin-left: 1000px;
+}
 /* Button Small */
 .wprt-button.small { padding: 8px 20px; font-size: 12px; }
 
